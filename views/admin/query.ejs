@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Farsan&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/admin/style.css">
+    </head>
+<body>
+
+<%- include('../../partials/admin/header.ejs') %>
+   <section id="mid">
+    <div class="container">
+        <div class="row">
+<%- include('../../partials/admin/left.ejs') %>
+
+            <div class="col-md-9">
+                <h2>Query Management</h2>
+                <table class="table table-hover">
+                    <tr>
+                        <th>Total Query:<%=totalquery%></th>
+                        <th>Waiting For Reply:<%=waitingforreply%></th>
+                        <th>Replied Query:<%=replied%></th>
+                    </tr>
+                </table>
+
+            <table class="table table-hover">
+                <tr>
+                    <th>S.no</th>
+                    <th>Email</th>
+                    <th>Query</th>
+                    <th>Posted Date</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                </tr>
+                <h2>Search By Status</h2>
+            <form action="" method="post">
+                <select name="status" id="" class="form-select">
+                    <option value="waiting for reply">Waiting for reply</option>
+                    <option value="Replied">Replied</option>
+                </select>
+                <button type="submit" class="form-control btn btn-success mt-2 mb-3">Search</button>
+            </form>
+                <%record.forEach((result,key)=>{%>
+                <tr>
+                    <td><%=key+1%></td>
+                    <td><%=result.email%></td>
+                    <td><%=result.query%></td>
+                    <td><%=result.postedDate%></td>
+                    <%if (result.status=='Replied'){%>
+                        <td><a href="/admin/queryform/<%=result.id%>"><button disabled style="background-color: seagreen;"><%=result.status%></button></a></td>
+                   <% }else{%>
+                        <td><a href="/admin/queryform/<%=result.id%>"><button  class=" btn btn-danger "><%=result.status%></button></a></td>
+                   <%}%>
+                   <td><a href="/admin/querydelete/<%=result.id%>"><i class="bi bi-trash3 btn btn-danger"></i></a></td>
+                </tr>
+                <%})%>
+            </table>
+            </div>
+        </div>
+    </div>
+   </section>
+
+<%- include('../../partials/admin/footer.ejs') %>
+</body>
+</html>
