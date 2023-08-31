@@ -1,0 +1,64 @@
+/* h3{
+    text-align: center;
+    color: aqua;
+} */
+
+#login h2 {
+    text-align: center;
+    color: red
+}
+
+#login {
+    height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+#header {
+    background: linear-gradient(to right, rgb(6, 35, 210), rgb(2, 16, 98));
+    padding: 15px 0px;
+}
+
+#header h2 {
+    color: white;
+    float: left;
+}
+
+#header button {
+    /* color: blue; */
+    float: right;
+}
+
+#mid {
+    text-align: center;
+    /* background-image: url(https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mid .bi-pencil-fill {
+    font-size: 20px;
+}
+
+#mid .bi-trash3 {
+    font-size: 20px;
+}
+
+/* #mid th{
+    font-size: 12px;
+}
+#mid td{
+    font-size: 12px;
+} */
+#mid .col-md-9 {
+    font-style: italic;
+    padding-top: 5%;
+}
+
+#footer {
+    background: linear-gradient(to right, rgb(6, 125, 210), rgb(2, 16, 98));
+    padding: 15px 0px;
+    font-style: italic;
+    color: aliceblue;
+    text-align: right;
+}
